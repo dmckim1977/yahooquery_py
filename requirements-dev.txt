@@ -1,0 +1,3 @@
+flit
+pip-tools
+pytest

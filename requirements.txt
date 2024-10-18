@@ -1,0 +1,10 @@
+boto3
+botocore
+numpy
+pandas
+psycopg2-binary
+pydantic
+python-dotenv
+requests
+sentry-sdk
+sqlalchemy
