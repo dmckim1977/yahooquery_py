@@ -4,7 +4,7 @@ Default package
 Examples:
 """
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 __description__ = "Wrapper around yahooquery"
 __author__ = "David McKim"
 __author_email__ = "davidmckim@gmail.com"

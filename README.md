@@ -2,6 +2,18 @@
 
 Very simple wrapper around yahooquery
 
+## Installation
+
+```python
+pip install git + https://github.com/dmckim1977/yahooquery_py.git@v0.1.1
+```
+
+Via requirements
+
+```text
+yahooquery_py @ git+https://github.com/dmckim1977/yahooquery_py.git@v0.1.1
+```
+
 Examples:
 
 ```python
