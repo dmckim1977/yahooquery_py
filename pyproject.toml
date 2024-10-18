@@ -3,17 +3,13 @@ requires = ["flit_core >=3.2,<4"]
 build-backend = "flit_core.buildapi"
 
 [project]
-name = "project_name"
+name = "yahooquery_py"
 authors = [{name = "David McKim", email = "davidmckim@gmail.com"}]
 dynamic = ["version", "description"]
 dependencies = [
+    "yahooquery==2.3.7",
+    "pandas==2.2.3",
 
-]
-
-[project.optional-dependencies]
-test = [
-    "pytest >=2.7.3",
-    "pytest-cov",
 ]
 
 [tool.pytest.ini_options]
