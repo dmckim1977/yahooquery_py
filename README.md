@@ -5,13 +5,13 @@ Very simple wrapper around yahooquery
 ## Installation
 
 ```python
-pip install git + https://github.com/dmckim1977/yahooquery_py.git@v0.1.1
+pip install git + https://github.com/dmckim1977/yahooquery_py.git@{version}
 ```
 
 Via requirements
 
 ```text
-yahooquery_py @ git+https://github.com/dmckim1977/yahooquery_py.git@v0.1.1
+yahooquery_py @ git+https://github.com/dmckim1977/yahooquery_py.git@{version}
 ```
 
 Examples:
