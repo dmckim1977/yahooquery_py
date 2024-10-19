@@ -14,6 +14,9 @@ symbol_mapper = {
     "NQ": "NQ=F",
     "NQ1!": "NQ=F",
     "RTY": "RTY=F",
+    "SPX": "^SPX",
+    "RUT": "^RUT",
+    "NDX": "^NDX"
 }
 
 def map_symbol(symbol: str) -> str:
@@ -28,7 +31,7 @@ def daily_close(symbol: str, date: str) -> float:
 
 def _close_price(yahoo_symbol, date: str, dt: datetime) -> float:
     try:
-        df = Ticker(yahoo_symbol).history(period="5d", interval="1d", start=date)
+        df = Ticker(yahoo_symbol).history(period="5d", interval="30m", start=date)
         df.reset_index(inplace=True)
     except Exception as e:
         logging.error(f"Error for {yahoo_symbol} and date {date}: {e}")
@@ -40,7 +43,7 @@ def _close_price(yahoo_symbol, date: str, dt: datetime) -> float:
             logging.error(f"Error for {yahoo_symbol} and date {date}: {e}")
 
         try:
-            close_price = df.loc[dt, 'close'].item()
+            close_price = df.between_time("15:59:59", "16:02:00")['close'].item()
             if isinstance(close_price, float):
                 return close_price
             else:
@@ -50,5 +53,17 @@ def _close_price(yahoo_symbol, date: str, dt: datetime) -> float:
 
 
 if __name__ == "__main__":
-    c = daily_close("ES", "2024-10-01")
+    c = daily_close("aapl", "2024-10-18")
     print(type(c),c)
+
+    # spx = Ticker("^SPX")
+    # spx_hist = spx.history(period="5d", interval="1d")
+    # print(f"SPX {spx_hist.columns}")
+    #
+    # es = Ticker("ES=F")
+    # es_hist = es.history(period="5d", interval="1d")
+    # print(f"ES {es_hist.columns}")
+    #
+    # aapl = Ticker("AAPL")
+    # aapl_hist = aapl.history(period="5d", interval="1d")
+    # print(f"ES {aapl_hist.columns}")
