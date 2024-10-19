@@ -7,8 +7,8 @@ name = "yahooquery_py"
 authors = [{name = "David McKim", email = "davidmckim@gmail.com"}]
 dynamic = ["version", "description"]
 dependencies = [
-    "yahooquery",
-    "pandas",
+    "yahooquery>=2.3.7",
+    "pandas>=2.2.3",
 
 ]
 
