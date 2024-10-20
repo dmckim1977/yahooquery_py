@@ -1,7 +1,8 @@
 import logging
 from datetime import datetime
 
-from yahooquery import Ticker
+import pandas as pd
+import yfinance as yf
 
 futures = [
     ["ES", "ES=F", "ES1!", "/ES:XCME"],
@@ -25,35 +26,23 @@ def map_symbol(symbol: str) -> str:
 
 def daily_close(symbol: str, date: str) -> float:
     yahoo_symbol = map_symbol(symbol)
-    dt = datetime.strptime(date, "%Y-%m-%d").date()
-    return _close_price(yahoo_symbol, date, dt)
 
+    # Create a Ticker object
+    ticker = yf.Ticker(yahoo_symbol)
 
-def _close_price(yahoo_symbol, date: str, dt: datetime) -> float:
-    try:
-        df = Ticker(yahoo_symbol).history(period="5d", interval="30m", start=date)
-        df.reset_index(inplace=True)
-    except Exception as e:
-        logging.error(f"Error for {yahoo_symbol} and date {date}: {e}")
+    # Fetch the historical data for the specific date
+    historical_data = ticker.history(start=date)
 
-    if not len(df) == 0:
-        try:
-            df.set_index("date", inplace=True)
-        except Exception as e:
-            logging.error(f"Error for {yahoo_symbol} and date {date}: {e}")
+    # Get the closing price
+    if not historical_data.empty:
+        return float(historical_data['Close'].iloc[0])
+    else:
+        logging.error(f"No data available for {yahoo_symbol} on {date}.")
 
-        try:
-            close_price = df.between_time("15:59:59", "16:02:00")['close'].item()
-            if isinstance(close_price, float):
-                return close_price
-            else:
-                logging.error(f"Close price {close_price} is not a float")
-        except Exception as e:
-            logging.error(f"Error for {yahoo_symbol} and date {date}: {e}")
 
 
 if __name__ == "__main__":
-    c = daily_close("aapl", "2024-10-18")
+    c = daily_close("ES", "2024-10-01")
     print(type(c),c)
 
     # spx = Ticker("^SPX")
@@ -62,7 +51,7 @@ if __name__ == "__main__":
     #
     # es = Ticker("ES=F")
     # es_hist = es.history(period="5d", interval="1d")
-    # print(f"ES {es_hist.columns}")
+    # print(f"ES {es_hist}")
     #
     # aapl = Ticker("AAPL")
     # aapl_hist = aapl.history(period="5d", interval="1d")

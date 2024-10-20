@@ -29,3 +29,4 @@ typing_extensions==4.12.2
 tzdata==2024.2
 urllib3==2.2.3
 yahooquery==2.3.7
+yfinance==0.2.44
