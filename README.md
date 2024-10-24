@@ -7,7 +7,7 @@ Version: `v.0.1.4`
 ## Installation
 
 ```python
-pip install git + https://github.com/dmckim1977/yahooquery_py.git@{version}
+pip install git+https://github.com/dmckim1977/yahooquery_py.git@{version}
 ```
 
 Via requirements
