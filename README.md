@@ -2,7 +2,7 @@
 
 Very simple wrapper around yahooquery
 
-Version: `v.0.1.4`
+Version: `v.0.2.0`
 
 ## Installation
 
@@ -27,4 +27,4 @@ print(type(c), c)
 # output
 >>><class 'float'> 5759.75
 ```
-
+# TODO add polygon examples
