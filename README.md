@@ -2,7 +2,7 @@
 
 Very simple wrapper around yahooquery
 
-Version: `v.0.2.0`
+Version: `v.0.2.1`
 
 ## Installation
 
