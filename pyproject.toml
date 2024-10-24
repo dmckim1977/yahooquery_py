@@ -3,7 +3,7 @@ requires = ["flit_core >=3.2,<4"]
 build-backend = "flit_core.buildapi"
 
 [project]
-name = "yahooquery_py"
+name = "historicalprice"
 authors = [{name = "David McKim", email = "davidmckim@gmail.com"}]
 dynamic = ["version", "description"]
 dependencies = [

@@ -1,11 +1,11 @@
 """
-Default package
+HistoricalPrice
 
 Examples:
 """
 
-__version__ = "0.1.4"
-__description__ = "Wrapper around yahooquery"
+__version__ = "0.2.0"
+__description__ = "Wrapper around historical price APIs"
 __author__ = "David McKim"
 __author_email__ = "davidmckim@gmail.com"
 __copyright__ = "Copyright David McKim"
