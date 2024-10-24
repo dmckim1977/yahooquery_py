@@ -13,7 +13,7 @@ __copyright__ = "Copyright David McKim"
 import logging
 
 from .api import daily_close
-from api_polygon import PolygonV1
+from .api_polygon import PolygonV1
 
 __all__ = [
     "daily_close",
